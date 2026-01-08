@@ -30,8 +30,9 @@ Answer: Backend could send paginated data(10K+ articles) and using framworks lik
 
  
 4. The project includes both passing and failing tests. Walk us through how you used the test suite to guide your debugging process. Did you write any additional tests? If so, why?
+   Answer: I reviwed the code first to understand the basic logic. Then i ran tests to look for bugs. Unit tests help to reduce manual testing or any other issue created while creating new features. I fixed bugs for the test are failing. After fixing the bugs i did re-run of tests which allowed me to chceck if modifying code didnt break any other functionality. I haven't added additional test as time was limited, but as feature expands i would add more functionality tests and add some tests for data serialization to check data coming in using api is in correct format.
  
-5. Looking at the overall architecture, what potential issues do you see with this approach at scale? How would you refactor the codebase if this needed to handle 10,000+ articles?
+6. Looking at the overall architecture, what potential issues do you see with this approach at scale? How would you refactor the codebase if this needed to handle 10,000+ articles?
    Answer:
    Pagination and dabase indexs - Pagnations in api level allows to reduce json data to frontend and even while consuming direct api in another app. Indexing columns like id, article name and isfeatured allows us to grab data faster.
    Pagination or infinite scroll would allow us to display data faster in frontend
