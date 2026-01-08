@@ -35,12 +35,12 @@ export default function App() {
     return () => {
       isCancelled = true;
     };
-  }, []); // ← bug here
+  }, [showFeaturedOnly]); // ← bug here
 
-  const handleSelectArticle = async (articleId) => {
+  const handleSelectArticle = async (article) => {
     try {
       setError(null);
-      const data = await fetchArticleById(articleId);
+      const data = await fetchArticleById(article.id);
       setSelectedArticle(data);
     } catch (e) {
       setError(e.message);
