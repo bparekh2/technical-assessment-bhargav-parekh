@@ -21,12 +21,21 @@ identify and fix them.
 After you have fixed the bugs, please provide written responses to the following questions:
 
 1. The 'Show only featured' checkbox wasn't triggering a refetch. Describe how you diagnosed this issue and what you changed. Are there any trade-offs or alternative approaches you considered?
- 
+
+Answer: Not very proficient with frontend development but issue was diagnosed as loading the data would work first time but tracking the change the state would not have any effect. So the root cause could be updating the useeffect hook dependency was empty. Also, there was comment mention bug here :D
+
+
 2. Describe how you would modify both the backend API and frontend code to support fetching reduced payloads for the list view, and detailed payloads for a full article view. What are the advantages in performing this refactor?
+Answer: Backend could send paginated data(10K+ articles) and using framworks like ag grid for frontend would allow the application to scale up. using serialized data for verified data and adding summury api which will allow single article to be later loaded for full view of additional details.
+
  
-3. The project includes both passing and failing tests. Walk us through how you used the test suite to guide your debugging process. Did you write any additional tests? If so, why?
+4. The project includes both passing and failing tests. Walk us through how you used the test suite to guide your debugging process. Did you write any additional tests? If so, why?
  
-4. Looking at the overall architecture, what potential issues do you see with this approach at scale? How would you refactor the codebase if this needed to handle 10,000+ articles?
+5. Looking at the overall architecture, what potential issues do you see with this approach at scale? How would you refactor the codebase if this needed to handle 10,000+ articles?
+   Answer:
+   Pagination and dabase indexs - Pagnations in api level allows to reduce json data to frontend and even while consuming direct api in another app. Indexing columns like id, article name and isfeatured allows us to grab data faster.
+   Pagination or infinite scroll would allow us to display data faster in frontend
+   Using API's like summuray and details, this allows us to send minimal data for full list of articles and load only all details of single article when requested for.
 
 > ⏱ Expected time: about **60 minutes**.\
 > It's okay if you don't finish everything --- we want to see how you
